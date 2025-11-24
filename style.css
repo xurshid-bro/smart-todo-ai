@@ -1,53 +1,103 @@
-* { margin:0; padding:0; box-sizing:border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: 'Poppins, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
   color: #fff;
   min-height: 100vh;
-  padding: 20px;
+  padding: 10px; /* Telefon uchun kamroq padding */
 }
 .container {
-  max-width: 600px;
-  margin: 40px auto;
+  max-width: 100%; /* Telefon uchun to'liq kenglik */
+  margin: 10px auto;
   background: rgba(255,255,255,0.07);
   backdrop-filter: blur(15px);
   border-radius: 20px;
-  padding: 30px;
+  padding: 20px; /* Kamroq padding */
   box-shadow: 0 15px 35px rgba(0,0,0,0.5);
 }
-header h1 { font-size: 2.8em; text-align:center; margin-bottom:8px; }
-header p { text-align:center; opacity:0.8; font-size:1.1em; }
+header h1 { 
+  font-size: 2em; /* Kichik ekran uchun kichikroq */
+  text-align: center; 
+  margin-bottom: 8px; 
+}
+header p { 
+  text-align: center; 
+  opacity: 0.8; 
+  font-size: 1em; /* Kichikroq shrift */
+}
 .input-box {
-  display:flex; margin:30px 0; gap:10px;
+  display: flex; 
+  margin: 20px 0; 
+  gap: 10px;
+  flex-direction: column; /* Telefon uchun vertikal joylashuv */
 }
 #taskInput {
-  flex:1; padding:16px; border:none; border-radius:12px;
-  background:rgba(255,255,255,0.1); color:#fff; font-size:1.1em;
+  flex: 1; 
+  padding: 15px; 
+  border: none; 
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1); 
+  color: #fff; 
+  font-size: 1em;
 }
-#taskInput::placeholder { color:#aaa; }
+#taskInput::placeholder { color: #aaa; }
 #addBtn {
-  width:56px; height:56px; border:none; border-radius:50%;
-  background:#00d2ff; color:white; font-size:2em; cursor:pointer;
-  transition:0.3s;
+  width: 100%; /* Telefon uchun to'liq kenglik */
+  height: 50px; 
+  border: none; 
+  border-radius: 12px;
+  background: #00d2ff; 
+  color: white; 
+  font-size: 1.5em; 
+  cursor: pointer;
+  transition: 0.3s;
 }
-#addBtn:hover { background:#00b0d0; transform:scale(1.1); }
+#addBtn:hover { background: #00b0d0; transform: scale(1.05); }
 .ai-suggestion {
   background: rgba(0,210,255,0.15);
-  padding:12px 20px; border-radius:12px; margin:15px 0;
-  font-style:italic; display:none;
-  border-left:4px solid #00d2ff;
+  padding: 12px 15px; 
+  border-radius: 12px; 
+  margin: 15px 0;
+  font-style: italic; 
+  display: none;
+  border-left: 4px solid #00d2ff;
+  text-align: center;
 }
-#todoList { list-style:none; margin-top:20px; }
+#todoList { list-style: none; margin-top: 20px; }
 #todoList li {
-  background:rgba(255,255,255,0.08);
-  padding:15px; margin:10px 0; border-radius:12px;
-  display:flex; justify-content:space-between; align-items:center;
+  background: rgba(255,255,255,0.08);
+  padding: 15px; 
+  margin: 10px 0; 
+  border-radius: 12px;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
   animation: fadeIn 0.5s;
 }
-#todoList li.completed { opacity:0.6; text-decoration:line-through; }
-.delete-btn {
-  background:#ff4757; color:white; border:none; padding:6px 12px;
-  border-radius:8px; cursor:pointer;
+#todoList li.completed { 
+  opacity: 0.6; 
+  text-decoration: line-through; 
 }
-footer { text-align:center; margin-top:40px; opacity:0.8; }
-@keyframes fadeIn { from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+.delete-btn {
+  background: #ff4757; 
+  color: white; 
+  border: none; 
+  padding: 8px 12px;
+  border-radius: 8px; 
+  cursor: pointer;
+  font-size: 0.9em;
+}
+footer { 
+  text-align: center; 
+  margin-top: 30px; 
+  opacity: 0.8; 
+  font-size: 0.9em;
+}
+@keyframes fadeIn { 
+  from { opacity: 0; transform: translateY(20px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+@media (min-width: 600px) {
+  .input-box { flex-direction: row; }
+  #addBtn { width: 56px; height: 56px; border-radius: 50%; }
+}
